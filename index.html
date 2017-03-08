@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TransferPersonen</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/transferpersonen.css">
+    <script src="javascript/transferpersonen.js"></script>
+</head>
+<body>
+    <div class="header">
+        <p style="margin: 40px 0 0 20px;">Transfer Personen</p>
+    </div>
+    <div class="navigate">
+        <form style="left: 0; right: 0; overflow: hidden; padding: 10px 10px 10px 10px;">
+            <input id="pensioennummer" type="number" style="width: 100%;" value="3590029">
+            <button type="button" onclick="getNatuurlijkPersoon(source001, pensioennummer.value);" style="width: 100%;">Voeg toe</button>
+        </form>
+    </div>
+    <div id="content">
+        <div class="transferpersonen">
+            <table border="0" padding="0">
+                <tr>
+                    <td>
+                        <div class="environment">
+                            <div class="omgevingholder">
+                                <span class="backdrop">PPSPRD</span>
+                                <div id="source001" class="omgevingcontent"></div>
+                            </div>
+                        </div>
+                    </td>
+                    <td width="150px">
+                        <img class="kopieer" src="images/copy.png">
+                    </td>
+                    <td>
+                        <div class="environment">
+                            <div class="omgevingholder">
+                                <span class="backdrop">PPSTST</span>
+                                <div class="omgevingcontent"></div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="footer"></div>
+</body>
+
+</html>
