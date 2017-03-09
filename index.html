@@ -9,12 +9,12 @@
 </head>
 <body>
     <div class="header">
-        <p style="margin: 40px 0 0 20px;">Transfer Personen</p>
+        <p id="headertitle" style="margin: 10px 0 0 20px;">Transfer Personen</p>
     </div>
     <div class="navigate">
-        <form style="left: 0; right: 0; overflow: hidden; padding: 10px 10px 10px 10px;">
+        <form style="left: 0; width: 120px; overflow: hidden; padding: 10px 10px 10px 10px;">
             <input id="pensioennummer" type="number" style="width: 100%;" value="3590029">
-            <button type="button" onclick="getNatuurlijkPersoon(source001, pensioennummer.value);" style="width: 100%;">Voeg toe</button>
+            <button type="button" onclick="getNatuurlijkPersoon(source001, pensioennummer.value); persoons.push(pensioennummer.value);" style="width: 100%;">Voeg toe</button>
         </form>
     </div>
     <div id="content">
@@ -26,17 +26,17 @@
                             <div class="omgevingholder">
                                 <span class="backdrop">PPSPRD</span>
                                 <div id="source001" class="omgevingcontent"></div>
-                            </div>
+                            </div> 
                         </div>
                     </td>
                     <td width="150px">
-                        <img class="kopieer" src="images/copy.png">
+                        <img class="kopieer" src="images/copy.png" onclick="transferPersoons(destination001);">
                     </td>
                     <td>
                         <div class="environment">
                             <div class="omgevingholder">
                                 <span class="backdrop">PPSTST</span>
-                                <div class="omgevingcontent"></div>
+                                <div id="destination001" class="omgevingcontent"></div>
                             </div>
                         </div>
                     </td>
@@ -45,6 +45,9 @@
         </div>
     </div>
     <div class="footer"></div>
+    <script>
+        if (window.location.hash) url = window.location.hash.substring(1);
+    </script>
 </body>
 
 </html>

@@ -1,3 +1,6 @@
+let url = "http://natuurlijkepersonen.svc.tst.tkp/api/v1/natuurlijkepersonen/{ids}";
+let persoons = [];
+
 function newHttp() {
     try
     {
@@ -25,9 +28,8 @@ function newHttp() {
     }
 }
 
-async function getNatuurlijkPersoon(el, pensioennummer) {
+function getNatuurlijkPersoon(el, pensioennummer) {
     let xmlHttp = newHttp();
-    let url = "http://natuurlijkepersonen.svc.tst.tkp/api/v1/natuurlijkepersonen/{ids}";
 
     xmlHttp.open( "GET", url.replace("{ids}", pensioennummer), true );
     xmlHttp.setRequestHeader("Accept", "application/json");
@@ -52,6 +54,13 @@ function voegToe(el, pensioennummer, naam) {
     newElement.setAttribute("draggable", "true");
     newElement.innerHTML = '<p style="margin: 0; text-align: center; user-select: none;">' + pensioennummer + '</p><p style="margin: 0; text-align: center; font-size: 40%;">' + naam + '</p>';
     el.appendChild(newElement);
+}
+
+function transferPersoons(el) {
+    el.innerHTML = "";
+    persoons.forEach(function (item, index) {
+        getNatuurlijkPersoon(el, item);
+    });
 }
 
 function sleep(ms) {
