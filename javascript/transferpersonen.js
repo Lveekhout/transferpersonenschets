@@ -28,7 +28,12 @@ function newHttp() {
     }
 }
 
-function getNatuurlijkPersoon(el, pensioennummer) {
+function getNatuurlijkPersoon(pensioennummer) {
+    if (typeof sourceenvironment=="undefined") {
+        alert("Geen element: sourceenvironment");
+        return;
+    }
+
     let xmlHttp = newHttp();
 
     xmlHttp.open( "GET", url.replace("{ids}", pensioennummer), true );
@@ -39,7 +44,7 @@ function getNatuurlijkPersoon(el, pensioennummer) {
         {
             if (xmlHttp.status == 200) {
                 let np = JSON.parse(xmlHttp.responseText);
-                voegToe(el, pensioennummer, np.naam.adresseringsnaamVoluit);
+                voegToe(sourceenvironment, pensioennummer, np.naam.adresseringsnaamVoluit);
             } else {
                 alert(xmlHttp.status + " " +xmlHttp.statusText);
             }
