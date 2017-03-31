@@ -36,8 +36,9 @@ div.omgevingcontent {
 }
 div.persoontile {
     position: relative;
+    left: 0;
+    right: 0;
     padding: 0 10px 5px 10px;
-    float: left;
     margin: 3px;
     border: solid 4px black;
     border-radius: 10px;
